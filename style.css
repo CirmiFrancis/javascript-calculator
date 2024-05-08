@@ -47,7 +47,6 @@ button:hover {
 }
 
 .main-container {
-    /* padding: 10px 140px 200px 140px; */
     width: 450px;
     height: 600px;
     color: white;
@@ -107,7 +106,9 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-
+    body {
+        height: auto;
+    }
     
     button {
         font-size: 30px;
@@ -115,7 +116,8 @@ button:hover {
 
     .main-container {
         width: auto;
-        height: auto;
+        border: none;
         border-radius: 0px;
+        box-shadow: none;
     }
 }
