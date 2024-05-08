@@ -28,7 +28,7 @@ input:focus {
 }
 
 button {
-    font-size: 26px;
+    font-size: 36px;
     padding: 5px;
     color: white;
     background-color: black;
@@ -110,9 +110,13 @@ button:hover {
     body {
         height: auto;
     }
+    
+    button {
+        font-size: 30px;
+    }
 
     .main-container {
-        width: 90%;
-        height: 600px;
+        width: auto;
+        height: auto;
     }
 }
