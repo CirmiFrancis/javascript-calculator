@@ -29,8 +29,12 @@ let inputResult = document.getElementById('result');
 
 // Add character
 function addCharacter(character) {
-    if (inputResult.value == '0' ) {
+    if (inputResult.value == '0' && character != '.') {
         inputResult.value = ''
+    }
+
+    if (inputResult.value == 'ERROR') {
+        inputResult.value = ''  
     }
 
     inputResult.value += character;
@@ -55,6 +59,12 @@ function noNumber() {
 
 // Operation (Equal)
 function evalResult() {
-    let operationResult = eval(inputResult.value);
-    inputResult.value = operationResult;
+    try {
+        let operationResult = eval(inputResult.value);
+        inputResult.value = operationResult;
+    }
+    catch (error) {
+        inputResult.value = 'ERROR'
+        console.log('Error Detected:', error)
+    }
 }
