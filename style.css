@@ -107,9 +107,7 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-    body {
-        height: auto;
-    }
+
     
     button {
         font-size: 30px;
@@ -118,5 +116,6 @@ button:hover {
     .main-container {
         width: auto;
         height: auto;
+        border-radius: 0px;
     }
 }
