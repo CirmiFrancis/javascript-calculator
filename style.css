@@ -121,4 +121,8 @@ button:hover {
         border-radius: 0px;
         box-shadow: none;
     }
+
+    .title {
+        border-bottom: none;
+    }
 }
