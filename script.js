@@ -33,7 +33,7 @@ let functionSwitch = true;
 function addCharacter(character) {
     if (functionSwitch) {
         inputResult.value == '0' && character != '.' ? inputResult.value = '' : '';
-        inputResult.value == 'ERROR' ? inputResult.value = '' : '';
+        //inputResult.value == 'SYNTAX ERROR' ? inputResult.value = '' : '';
         inputResult.value += character;
     }
 }
