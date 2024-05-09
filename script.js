@@ -1,4 +1,4 @@
-console.log('El archivo JavaScript está funcionando.')
+console.log('El archivo JavaScript está funcionando.');
 
 // ====== Events ======
 document.getElementById('number0').addEventListener('click', () => addCharacter(0));
@@ -11,7 +11,8 @@ document.getElementById('number6').addEventListener('click', () => addCharacter(
 document.getElementById('number7').addEventListener('click', () => addCharacter(7));
 document.getElementById('number8').addEventListener('click', () => addCharacter(8));
 document.getElementById('number9').addEventListener('click', () => addCharacter(9));
-document.getElementById('numberFloat').addEventListener('click', () => addCharacter('.'));
+
+document.getElementById('point').addEventListener('click', () => addCharacter('.'));
 document.getElementById('openPar').addEventListener('click', () => addCharacter('('));
 document.getElementById('closePar').addEventListener('click', () => addCharacter(')'));
 document.getElementById('div').addEventListener('click', () => addCharacter('/'));
@@ -26,45 +27,51 @@ document.getElementById('equal').addEventListener('click', evalResult);
 
 // ====== Functions ======
 let inputResult = document.getElementById('result');
+let functionSwitch = true;
 
 // Add character
 function addCharacter(character) {
-    if (inputResult.value == '0' && character != '.') {
-        inputResult.value = ''
+    if (functionSwitch) {
+        inputResult.value == '0' && character != '.' ? inputResult.value = '' : '';
+        inputResult.value == 'ERROR' ? inputResult.value = '' : '';
+        inputResult.value += character;
     }
-
-    if (inputResult.value == 'ERROR') {
-        inputResult.value = ''  
-    }
-
-    inputResult.value += character;
 }
 
 // Delete
 function delAll() {
-    inputResult.value = '';
-    noNumber()
+    if (functionSwitch) {
+        inputResult.value = '';
+        noNumber();
+    }
 }
 
 function del() {
-    inputResult.value = inputResult.value.slice(0, -1);
-    noNumber()
+    if (functionSwitch) {
+        inputResult.value = inputResult.value.slice(0, -1);
+        noNumber();
+    }
 }
 
 function noNumber() {
-    if (inputResult.value.length === 0) {
-        inputResult.value = 0
-    }
+    inputResult.value.length === 0 ? inputResult.value = 0 : '';
 }
 
 // Operation (Equal)
 function evalResult() {
-    try {
-        let operationResult = eval(inputResult.value);
-        inputResult.value = operationResult;
-    }
-    catch (error) {
-        inputResult.value = 'ERROR'
-        console.log('Error Detected:', error)
+    if (functionSwitch) {
+        try {
+            let operationResult = eval(inputResult.value);
+            inputResult.value = operationResult;
+        }
+        catch (error) {
+            functionSwitch = false;
+            inputResult.value = 'SYNTAX ERROR';
+            console.log('Error Detected:', error);
+            setTimeout(function() {
+                functionSwitch = true;
+                inputResult.value = 0;
+            }, 1000);
+        }
     }
 }
