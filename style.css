@@ -60,7 +60,7 @@ button:hover {
 .title {
     color: black;
     background-color: white;
-    border-bottom: 4px solid black;
+    border-radius: 4px 4px 0 0;
     text-align: center;
 }
 
